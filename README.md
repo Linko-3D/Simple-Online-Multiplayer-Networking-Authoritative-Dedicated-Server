@@ -1,5 +1,6 @@
-# Simple Online Multiplayer Networking Template
+###### Online Multiplayer Networking Dedicated Authoritative Server
 
-A simple Godot online multiplayer networking setup: connect to an online server, instance a map, spawn players, and update their positions.
 
-The clients connect by default to the local IP of your computer. When a game is hosted, the server's public IP is displayed above. The IP can be shared with clients for an internet connection. It is also possible to compile the game with the server's public IP directly in the script so that clients automatically join when the server is launched. The client calls the "join" button in the ready function and will connect automatically upon launch if a server is detected (by default, if a local server is detected).
+
+A Godot multiplayer setup. Change the IP address to your cloud service and compile and upload it as a Linux headless version. The clients will connect automatically to the server. The server has full authority; the player can only send inputs to prevent cheating.
+
