@@ -5,6 +5,10 @@ const SERVER_IP = "localhost"
 const SERVER_PORT = 9999
 
 @export var player : PackedScene
+@export var maps: Array[PackedScene]
+
+
+
 
 
 func _ready():
@@ -15,6 +19,8 @@ func _ready():
 
 
 func create_server():
+
+	
 	var peer = ENetMultiplayerPeer.new()
 	var res = peer.create_server(SERVER_PORT)
 
@@ -24,6 +30,9 @@ func create_server():
 		print("CAN NOT CREATE SERVER. ERROR NUMBER: %d \n", res)
 
 	multiplayer.multiplayer_peer = peer
+
+	var map_instance = maps.pick_random().instantiate()
+	%Map.add_child(map_instance)
 
 	multiplayer.peer_connected.connect(
 		func(id):

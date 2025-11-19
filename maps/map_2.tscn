@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5evxt5qada4t"]
+
+[ext_resource type="Texture2D" uid="uid://csrxocrvt3041" path="res://maps/map.png" id="1_vffac"]
+
+[node name="Map2" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 791.0
+offset_bottom = 457.0
+
+[node name="Map1" type="Sprite2D" parent="."]
+modulate = Color(1, 0.5372549, 0.5372549, 1)
+texture = ExtResource("1_vffac")
+centered = false

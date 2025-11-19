@@ -18,6 +18,14 @@ properties/0/replication_mode = 1
 motion_mode = 1
 script = ExtResource("1_4flbx")
 
+[node name="DisplayControllerPlayer" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 0.5)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_onrkg")
+
 [node name="InputsToServer" type="MultiplayerSynchronizer" parent="."]
 root_path = NodePath(".")
 replication_config = SubResource("SceneReplicationConfig_i3pqv")
@@ -26,11 +34,3 @@ script = ExtResource("3_i3pqv")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_onrkg")
-
-[node name="DisplayControllerPlayer" type="Sprite2D" parent="."]
-modulate = Color(0, 1, 0, 0.5)
-scale = Vector2(1.2, 1.2)
-texture = ExtResource("2_onrkg")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_onrkg")
