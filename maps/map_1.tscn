@@ -11,7 +11,7 @@ size = Vector2(57, 648)
 [node name="Map1" type="Node2D"]
 
 [node name="Map" type="Sprite2D" parent="."]
-modulate = Color(1, 0.735357, 0.5370987, 1)
+modulate = Color(1, 0.6651851, 0.5370987, 1)
 texture = ExtResource("1_p5fey")
 centered = false
 
