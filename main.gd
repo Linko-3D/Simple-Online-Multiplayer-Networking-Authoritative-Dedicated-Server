@@ -5,10 +5,7 @@ const SERVER_IP = "localhost"
 const SERVER_PORT = 9999
 
 @export var player : PackedScene
-@export var maps: Array[PackedScene]
-
-
-
+@export var maps : Array[PackedScene]
 
 
 func _ready():
@@ -19,13 +16,13 @@ func _ready():
 
 
 func create_server():
-
-	
 	var peer = ENetMultiplayerPeer.new()
 	var res = peer.create_server(SERVER_PORT)
 
 	if res == OK:
 		print("SERVER ONLINE\n")
+		%HostButton.text = "SERVER ONLINE"
+		%HostButton.disabled = true
 	else:
 		print("CAN NOT CREATE SERVER. ERROR NUMBER: %d \n", res)
 

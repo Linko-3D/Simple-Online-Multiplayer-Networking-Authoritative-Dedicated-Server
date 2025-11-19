@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://rvaklxrqa5d3"]
+[gd_scene load_steps=7 format=3 uid="uid://rvaklxrqa5d3"]
 
 [ext_resource type="Script" uid="uid://bvk1t7kkwds75" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://bk8j7g11vwhfk" path="res://icon.svg" id="2_onrkg"]
 [ext_resource type="Script" uid="uid://dx51x0l6uykfd" path="res://player/inputs_to_server.gd" id="3_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g1dw6"]
+size = Vector2(128, 32)
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_i3pqv"]
 properties/0/path = NodePath(".:input_dir")
@@ -15,6 +18,7 @@ properties/0/spawn = true
 properties/0/replication_mode = 1
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_4flbx")
 
@@ -25,6 +29,10 @@ texture = ExtResource("2_onrkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_onrkg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_g1dw6")
 
 [node name="InputsToServer" type="MultiplayerSynchronizer" parent="."]
 root_path = NodePath(".")
