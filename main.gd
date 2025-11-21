@@ -19,21 +19,18 @@ func create_server():
 	var peer = ENetMultiplayerPeer.new()
 	var res = peer.create_server(SERVER_PORT)
 
-	if res == OK:
-		print("DEDICATED SERVER IS RUNNING")
-		print("Waiting for players to join...\n")
-		%HostButton.text = "SERVER ONLINE"
-		%HostButton.disabled = true
-	else:
-		print(
-			"CAN NOT CREATE SERVER. ERROR %d: %s\n"
-			% [res, error_string(res)]
-		)
+	if res != OK:
+		return
 
 	multiplayer.multiplayer_peer = peer
-
+	
 	var map_instance = maps.pick_random().instantiate()
 	$Map.add_child(map_instance)
+
+	print("DEDICATED SERVER IS RUNNING")
+	print("Waiting for players to join...\n")
+	%HostButton.text = "SERVER ONLINE"
+	%HostButton.disabled = true
 
 	multiplayer.peer_connected.connect(
 		func(id):
