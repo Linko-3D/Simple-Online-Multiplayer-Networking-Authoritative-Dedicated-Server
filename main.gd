@@ -76,6 +76,6 @@ func create_client():
 
 	multiplayer.server_disconnected.connect(func ():
 		%HostButton.show()
-		$ConnectLabel.text = "Connection lost — trying to reconnect…"
+		$StatusLabel.text = "Connection lost — trying to reconnect…"
 		create_client()
 	)
