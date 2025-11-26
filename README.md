@@ -26,7 +26,7 @@ Then type this to connect:
 ssh -i mykey.pem ec2-user@PUBLIC_DNS_HERE
 ```
 
-If it asks for the fingerprint, type **yes**.
+If it asks for the fingerprint, type **yes**. Then type it again to connect; you should see a bird displayed.
 
 To upload the file, open a new console and type this, with the path to your key and the path to your server folder:
 
