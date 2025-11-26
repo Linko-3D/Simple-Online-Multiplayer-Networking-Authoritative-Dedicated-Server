@@ -27,7 +27,7 @@ script = ExtResource("1_4flbx")
 
 [node name="DisplayControllerPlayer" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.75000006)
-scale = Vector2(1.1, 1.1)
+scale = Vector2(1.05, 1.05)
 texture = ExtResource("3_yw30f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
