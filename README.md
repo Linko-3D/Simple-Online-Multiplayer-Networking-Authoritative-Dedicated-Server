@@ -41,6 +41,7 @@ ssh -i mykey.pem ec2-user@PUBLIC_DNS_HERE
 ```
 
 You can type **ls** to see whether the folder has been uploaded correctly.
+
 Set the correct permissions for the files:
 
 ```bash
