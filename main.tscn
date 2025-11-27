@@ -1,9 +1,14 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpeqtppim4jdo"]
+[gd_scene load_steps=6 format=3 uid="uid://cpeqtppim4jdo"]
 
 [ext_resource type="Script" uid="uid://bb6w3xyq8y36n" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://rvaklxrqa5d3" path="res://player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://bg6edawcpcn2a" path="res://maps/map_1.tscn" id="3_h2yge"]
 [ext_resource type="PackedScene" uid="uid://c5evxt5qada4t" path="res://maps/map_2.tscn" id="4_1bvp3"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1bvp3"]
+properties/0/path = NodePath("Chat/VBoxContainer/Messages:text")
+properties/0/spawn = true
+properties/0/replication_mode = 2
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ig7tw")
@@ -45,18 +50,13 @@ grow_vertical = 0
 alignment = 2
 
 [node name="Messages" type="TextEdit" parent="Chat/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
-text = "1
-2
-3
-4
-5
-6
-7"
 editable = false
 
-[node name="LineEdit" type="LineEdit" parent="Chat/VBoxContainer"]
+[node name="SendMessage" type="LineEdit" parent="Chat/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 
 [node name="Debug" type="VBoxContainer" parent="."]
@@ -76,4 +76,8 @@ spawn_path = NodePath("../Players")
 _spawnable_scenes = PackedStringArray("uid://bg6edawcpcn2a", "uid://c5evxt5qada4t")
 spawn_path = NodePath("../Map")
 
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_1bvp3")
+
+[connection signal="text_submitted" from="Chat/VBoxContainer/SendMessage" to="." method="_on_send_message_text_submitted"]
 [connection signal="pressed" from="Debug/HostButton" to="." method="create_server"]

@@ -8,6 +8,11 @@ const SERVER_PORT = 8080
 @export var maps : Array[PackedScene]
 
 
+#func _input(event: InputEvent):
+	#if Input.is_action_just_pressed("enter"):
+		#$Chat.visible = not $Chat.visible
+
+
 func _ready():
 	if OS.has_feature("release"):
 		$Debug.hide()
@@ -58,6 +63,9 @@ func create_server():
 			$Players.get_node(str(id)).queue_free()
 	)
 
+	# WIP
+	$Chat/VBoxContainer/Messages.editable = true
+	$Chat/VBoxContainer/Messages.scroll_vertical = INF
 
 func create_client():
 	var peer = ENetMultiplayerPeer.new()
@@ -79,3 +87,13 @@ func create_client():
 		$StatusLabel.text = "Connection lost — trying to reconnect…"
 		create_client()
 	)
+
+
+func _on_send_message_text_submitted(new_text: String):
+	rpc_id(1, "message", new_text)
+	%SendMessage.text = ""
+
+
+@rpc("any_peer", "call_remote", "reliable")
+func message(msg: String):
+	%Messages.text += "\n" + msg

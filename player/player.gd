@@ -13,7 +13,7 @@ func _ready():
 		$Sprite2D.modulate = Color.from_hsv(randf(), 0.5, 1.0)
 
 
-func _physics_process(delta):
+func _physics_process(delta: float):
 	var direction = $InputsToServer.input_dir
 	if direction:
 		velocity.x = direction.x * SPEED
