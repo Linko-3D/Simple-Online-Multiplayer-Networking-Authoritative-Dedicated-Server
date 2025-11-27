@@ -15,7 +15,9 @@ func _process(delta: float):
 func _ready():
 	$Chat.hide()
 
-	if OS.has_feature("release"):
+	if OS.has_feature("editor"):
+		$Debug.show()
+	else:
 		$Debug.hide()
 
 	if OS.has_feature("dedicated_server"):
@@ -64,17 +66,14 @@ func create_server():
 			$Players.get_node(str(id)).queue_free()
 	)
 
-	# WIP
-	%Messages.editable = true
-	%Messages.scroll_vertical = INF
 
 func create_client():
 	var peer = ENetMultiplayerPeer.new()
 
-	if OS.has_feature("release"):
-		peer.create_client(SERVER_IP, SERVER_PORT)
-	else:
+	if OS.has_feature("editor"):
 		peer.create_client("localhost", SERVER_PORT)
+	else:
+		peer.create_client(SERVER_IP, SERVER_PORT)
 
 	multiplayer.multiplayer_peer = peer
 
