@@ -1,15 +1,11 @@
 extends Node
 
 
-const SERVER_IP = "localhost" # Replace it with the server’s public DNS
+const SERVER_IP = "localhost" # Replace it with the cloud computing’s public DNS
 const SERVER_PORT = 8080
 
 @export var player : PackedScene
 @export var maps : Array[PackedScene]
-
-
-func _process(delta: float):
-	%Messages.scroll_vertical = INF
 
 
 func _ready():
@@ -45,7 +41,7 @@ func create_server():
 
 	multiplayer.peer_connected.connect(
 		func(id):
-			%Messages.text += str(id) + ": has joined\n"
+			%Messages.text += "[color=green]" + str(id) + " has joined[/color]\n"
 			print("%d has joined" % id)
 			print("Number of players: %d\n" % multiplayer.get_peers().size())
 
@@ -62,7 +58,7 @@ func create_server():
 
 	multiplayer.peer_disconnected.connect(
 		func(id):
-			%Messages.text += str(id) + ": has left\n"
+			%Messages.text += "[color=red]" + str(id) + " has left[/color]\n"
 			print("%d has left" % id)
 			print("Number of players: %d\n" % multiplayer.get_peers().size())
 			$Players.get_node(str(id)).queue_free()
@@ -97,8 +93,10 @@ func _on_send_message_text_submitted(new_text: String):
 	if %SendMessage.text != "":
 		rpc_id(1, "message", multiplayer.get_unique_id() , new_text)
 		%SendMessage.text = ""
+	%SendMessage.release_focus()
 
 
 @rpc("any_peer", "call_remote", "reliable")
 func message(id: int, msg: String):
-	%Messages.text += str(id) + ": " + msg + "\n"
+	msg = msg.replace("[", "[ ").replace("]", " ]") # Prevent from using BBCode
+	%Messages.text += "[color=orange]%d: %s[/color]\n" % [id, msg]
