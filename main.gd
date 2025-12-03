@@ -1,7 +1,7 @@
 extends Node
 
 
-const SERVER_IP = "localhost" # Replace it with the cloud computing’s public DNS
+const SERVER_IP = "localhost" # Replace it with the cloud hosting’s public DNS
 const SERVER_PORT = 8080
 
 @export var player : PackedScene

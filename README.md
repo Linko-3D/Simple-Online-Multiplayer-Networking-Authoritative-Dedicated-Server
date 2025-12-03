@@ -1,6 +1,6 @@
 # Simple Online Multiplayer Networking Authoritative Dedicated Server
 
-A simple Godot multiplayer setup. Change the IP address to your cloud service public DNS, then compile and upload it as a Linux headless version with debug. The clients will connect automatically to the server. The server has full authority; players can only send inputs in order to prevent cheating. The server is the only one able to see the players’ inputs. The server selects a random map, then selects a random node in the spawn area group, obtains its dimensions, and sets a random position for the client spawned inside it.
+A simple Godot multiplayer setup. Change the IP address to your cloud hosting public DNS, then compile and upload it as a Linux headless version with debug. The clients will connect automatically to the server. The server has full authority; players can only send inputs in order to prevent cheating. The server is the only one able to see the players’ inputs. The server selects a random map, then selects a random node in the spawn area group, obtains its dimensions, and sets a random position for the client spawned inside it.
 
 ## Tutorial to host the game online
 
@@ -12,7 +12,7 @@ A simple Godot multiplayer setup. Change the IP address to your cloud service pu
 
 * In your instance, copy the full Public DNS address to your game script for the constant `SERVER_IP`. Important: each time you stop the instance and then start it again the Public DNS will change, and you will need to rebuild your game.
 
-* Export a Linux build of your game. In the **Resources** tab, set the **Export mode** to **Export as dedicated server**. Export it and check **Export With Debug** in order to obtain a `.sh` file. This is the file the cloud server will run. Use a simple name such as **server** and save your project in a folder called **server**.
+* Export a Linux build of your game. In the **Resources** tab, set the **Export mode** to **Export as dedicated server**. Export it and check **Export With Debug** in order to obtain a `.sh` file. This is the file the cloud host will run. Use a simple name such as **server** and save your project in a folder called **server**.
 
 Open the console. Go to the folder where you saved your key, for example (use right click to paste in the console):
 
