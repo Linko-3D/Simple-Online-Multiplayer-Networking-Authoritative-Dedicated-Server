@@ -2,6 +2,7 @@ extends MultiplayerSynchronizer
 
 
 var input_dir : Vector2
+var mouse_position : Vector2
 
 
 func _ready():
