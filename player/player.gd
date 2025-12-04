@@ -5,7 +5,7 @@ const SPEED = 500.0
 
 
 func _ready():
-	$DisplayControllerPlayer.visible = name.to_int() == multiplayer.get_unique_id()
+	%DisplayControllerPlayer.visible = name.to_int() == multiplayer.get_unique_id()
 	$InputsToServer.set_multiplayer_authority(name.to_int())
 	set_physics_process(multiplayer.is_server())
 
@@ -14,6 +14,8 @@ func _ready():
 
 
 func _physics_process(delta: float):
+	$Sprite2D.look_at($Sprite2D.global_position + $InputsToServer.aim_vector)
+	
 	var direction = $InputsToServer.input_dir
 	if direction:
 		velocity.x = direction.x * SPEED
