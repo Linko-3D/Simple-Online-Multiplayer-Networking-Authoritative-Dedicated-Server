@@ -106,3 +106,11 @@ func create_client():
 		%HostButton.show()
 		$Chat.hide()
 	)
+
+
+func _on_messages_synchronizer_delta_synchronized() -> void:
+	%Messages.show()
+	$DIsplayMessagesTimer.start()
+
+func _on_d_isplay_messages_timer_timeout() -> void:
+	%Messages.hide()
