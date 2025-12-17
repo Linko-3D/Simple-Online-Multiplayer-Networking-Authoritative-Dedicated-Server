@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://rvaklxrqa5d3"]
+[gd_scene load_steps=8 format=3 uid="uid://rvaklxrqa5d3"]
 
 [ext_resource type="Script" uid="uid://bvk1t7kkwds75" path="res://player/player.gd" id="1_4flbx"]
+[ext_resource type="PackedScene" uid="uid://be6pawkdmayqr" path="res://player/bullet.tscn" id="2_yw30f"]
 [ext_resource type="Script" uid="uid://dx51x0l6uykfd" path="res://player/inputs_to_server.gd" id="3_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://dtiqolsc7hbtl" path="res://player/sprite.png" id="3_yw30f"]
 
@@ -30,6 +31,7 @@ properties/2/replication_mode = 0
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_4flbx")
+bullet = ExtResource("2_yw30f")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_yw30f")

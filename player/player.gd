@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 
+@export var bullet : PackedScene
+
 
 func _ready():
 	%DisplayControllerPlayer.visible = name.to_int() == multiplayer.get_unique_id()
