@@ -10,7 +10,7 @@ A simple Godot multiplayer setup. Change the IP address to your cloud hosting pu
 
 * Go to your instance. Click the **Security** tab. Open the **Security groups** link. Click **Edit inbound rules**. Click **Add rule**, set the type to **Custom UDP**, and for the port range use the port of your game (in this demonstration project it is 8080). For the source, select **Anywhere IPv4**. Click **Save rules**.
 
-* In your instance, copy the full Public DNS address to your game script for the constant `SERVER_IP`. Important: each time you stop the instance and then start it again the Public DNS will change, and you will need to rebuild your game.
+* Copy the full Public DNS address of your instance to your game script for the constant `SERVER_IP`. Important: each time you stop the instance and then start it again the Public DNS will change, and you will need to rebuild your game.
 
 * Export a Linux build of your game. In the **Resources** tab, set the **Export mode** to **Export as dedicated server**. Export it and check **Export With Debug** in order to obtain a `.sh` file. This is the file the cloud host will run. Use a simple name such as **server** and save your project in a folder called **server**.
 
