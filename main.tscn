@@ -54,7 +54,7 @@ bbcode_enabled = true
 scroll_active = false
 scroll_following = true
 
-[node name="SendMessage" type="LineEdit" parent="Chat"]
+[node name="SendMessage" type="LineEdit" parent="Chat" groups=["send_message"]]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1

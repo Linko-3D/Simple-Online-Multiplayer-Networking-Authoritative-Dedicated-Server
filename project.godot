@@ -23,7 +23,7 @@ window/size/resizable=false
 [global_group]
 
 spawn_area=""
-projectiles=""
+send_message=""
 
 [input]
 
