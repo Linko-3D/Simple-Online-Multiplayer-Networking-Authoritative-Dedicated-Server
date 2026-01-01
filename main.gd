@@ -4,6 +4,8 @@ extends Node
 const SERVER_IP = "localhost" # Replace it with the cloud hosting’s public DNS
 const SERVER_PORT = 8080
 
+var is_spectating = false
+
 @export var player : PackedScene
 @export var maps : Array[PackedScene]
 
