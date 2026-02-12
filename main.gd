@@ -60,6 +60,13 @@ func spawn_player():
 
 
 func _ready() -> void:
+	%SendMessage.position.y = get_viewport().get_visible_rect().size.y - (get_viewport().get_visible_rect().size.y / 3)
+
+	get_tree().root.size_changed.connect(
+		func():
+			%SendMessage.position.y = get_viewport().get_visible_rect().size.y - (get_viewport().get_visible_rect().size.y / 3)
+	)
+
 	$Chat.hide()
 	$Menu.hide()
 

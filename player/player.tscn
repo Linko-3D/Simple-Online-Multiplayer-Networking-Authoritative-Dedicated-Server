@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://rvaklxrqa5d3"]
+[gd_scene format=3 uid="uid://rvaklxrqa5d3"]
 
 [ext_resource type="Script" uid="uid://bvk1t7kkwds75" path="res://player/player.gd" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://dx51x0l6uykfd" path="res://player/client_inputs_to_server.gd" id="3_i3pqv"]
@@ -20,29 +20,45 @@ properties/1/path = NodePath(".:modulate")
 properties/1/spawn = true
 properties/1/replication_mode = 2
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=2050732622]
 collision_layer = 0
 motion_mode = 1
 script = ExtResource("1_4flbx")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=580999602]
 texture = ExtResource("3_yw30f")
 
-[node name="DisplayControllerPlayer" type="Sprite2D" parent="Sprite2D"]
+[node name="DisplayControllerPlayer" type="Sprite2D" parent="Sprite2D" unique_id=1053548890]
 unique_name_in_owner = true
 modulate = Color(0, 0, 0, 0.75000006)
 show_behind_parent = true
 scale = Vector2(1.05, 1.05)
 texture = ExtResource("3_yw30f")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189060470]
 shape = SubResource("CircleShape2D_g1dw6")
 
-[node name="ClientInputsToServer" type="MultiplayerSynchronizer" parent="."]
+[node name="PlayerName" type="Label" parent="." unique_id=422421012]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -95.0
+offset_right = 150.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 5
+text = "Anonymous"
+horizontal_alignment = 1
+
+[node name="ClientInputsToServer" type="MultiplayerSynchronizer" parent="." unique_id=70890736]
 root_path = NodePath(".")
 replication_config = SubResource("SceneReplicationConfig_i3pqv")
 public_visibility = false
 script = ExtResource("3_i3pqv")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=209622265]
 replication_config = SubResource("SceneReplicationConfig_onrkg")

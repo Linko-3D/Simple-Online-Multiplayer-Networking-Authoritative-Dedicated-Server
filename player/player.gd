@@ -5,6 +5,10 @@ const SPEED = 500.0
 
 
 func _ready() -> void:
+	var spawn_animation = get_tree().create_tween().set_trans(Tween.TRANS_SINE)
+	spawn_animation.tween_property($Sprite2D, "scale", Vector2.ZERO, 0)
+	spawn_animation.tween_property($Sprite2D, "scale", Vector2.ONE, 0.1)
+
 	set_physics_process(multiplayer.is_server())
 
 	%DisplayControllerPlayer.visible = name.to_int() == multiplayer.get_unique_id()

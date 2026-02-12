@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpeqtppim4jdo"]
+[gd_scene format=3 uid="uid://cpeqtppim4jdo"]
 
 [ext_resource type="Script" uid="uid://bb6w3xyq8y36n" path="res://main.gd" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://rvaklxrqa5d3" path="res://player/player.tscn" id="2_0xm2m"]
@@ -10,12 +10,12 @@ properties/0/path = NodePath("Chat/Messages:text")
 properties/0/spawn = true
 properties/0/replication_mode = 2
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=1169611418]
 script = ExtResource("1_ig7tw")
 player = ExtResource("2_0xm2m")
 maps = Array[PackedScene]([ExtResource("3_h2yge"), ExtResource("4_1bvp3")])
 
-[node name="StatusLabel" type="Label" parent="."]
+[node name="StatusLabel" type="Label" parent="." unique_id=1352979197]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -26,12 +26,12 @@ text = "Trying to connect..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Map" type="Node2D" parent="."]
+[node name="Map" type="Node2D" parent="." unique_id=90865489]
 
-[node name="Players" type="Node2D" parent="."]
+[node name="Players" type="Node2D" parent="." unique_id=619422592]
 y_sort_enabled = true
 
-[node name="Chat" type="Control" parent="."]
+[node name="Chat" type="Control" parent="." unique_id=901197244]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +39,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Messages" type="RichTextLabel" parent="Chat"]
+[node name="Messages" type="RichTextLabel" parent="Chat" unique_id=33937886]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 1
@@ -56,7 +56,7 @@ bbcode_enabled = true
 scroll_active = false
 scroll_following = true
 
-[node name="SendMessage" type="LineEdit" parent="Chat" groups=["send_message"]]
+[node name="SendMessage" type="LineEdit" parent="Chat" unique_id=1371237047 groups=["send_message"]]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -77,17 +77,17 @@ max_length = 200
 context_menu_enabled = false
 caret_blink = true
 
-[node name="Debug" type="VBoxContainer" parent="."]
+[node name="Debug" type="VBoxContainer" parent="." unique_id=1144812462]
 offset_right = 101.0
 offset_bottom = 40.0
 
-[node name="HostButton" type="Button" parent="Debug"]
+[node name="HostButton" type="Button" parent="Debug" unique_id=800863061]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 5
 text = "HOST GAME"
 
-[node name="Menu" type="VBoxContainer" parent="."]
+[node name="Menu" type="VBoxContainer" parent="." unique_id=1373420662]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -100,39 +100,39 @@ offset_bottom = 68.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="SetName" type="LineEdit" parent="Menu"]
+[node name="SetName" type="LineEdit" parent="Menu" unique_id=1514032417]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 placeholder_text = "Anonymous"
 
-[node name="EnterButton" type="Button" parent="Menu"]
+[node name="EnterButton" type="Button" parent="Menu" unique_id=76396623]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 5
 text = "Enter game"
 
-[node name="SpectateButton" type="Button" parent="Menu"]
+[node name="SpectateButton" type="Button" parent="Menu" unique_id=1515844237]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 text = "Spectate"
 
-[node name="QuitButton" type="Button" parent="Menu"]
+[node name="QuitButton" type="Button" parent="Menu" unique_id=1608198510]
 layout_mode = 2
 theme_override_constants/outline_size = 5
 text = "Quit"
 
-[node name="PlayerSpawner" type="MultiplayerSpawner" parent="."]
+[node name="PlayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1781601772]
 _spawnable_scenes = PackedStringArray("uid://rvaklxrqa5d3")
 spawn_path = NodePath("../Players")
 
-[node name="MapSpawner" type="MultiplayerSpawner" parent="."]
+[node name="MapSpawner" type="MultiplayerSpawner" parent="." unique_id=781743266]
 _spawnable_scenes = PackedStringArray("uid://bg6edawcpcn2a", "uid://c5evxt5qada4t")
 spawn_path = NodePath("../Map")
 
-[node name="MessagesSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MessagesSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1380582376]
 replication_config = SubResource("SceneReplicationConfig_1bvp3")
 
-[node name="DisplayMessagesTimer" type="Timer" parent="."]
+[node name="DisplayMessagesTimer" type="Timer" parent="." unique_id=1431242876]
 wait_time = 5.0
 one_shot = true
 
