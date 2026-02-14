@@ -11,6 +11,10 @@ var is_spectating = false
 
 
 func _input(event: InputEvent) -> void:
+	if is_spectating:
+		if event.is_action_pressed("cancel") and not %SendMessage.visible:
+			$Menu.show()
+
 	if event.is_action_pressed("cancel"):
 		%SendMessage.hide()
 		%SendMessage.text = ""
@@ -42,6 +46,7 @@ func message(msg: String):
 func _on_enter_button_pressed() -> void:
 	rpc_id(1, "spawn_player")
 	$Menu.hide()
+	is_spectating = false
 
 
 @rpc("any_peer", "reliable")
@@ -157,3 +162,4 @@ func _on_quit_button_pressed() -> void:
 
 func _on_spectate_button_pressed() -> void:
 	$Menu.hide()
+	is_spectating = true
