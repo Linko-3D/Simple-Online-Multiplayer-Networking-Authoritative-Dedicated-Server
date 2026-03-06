@@ -4,7 +4,7 @@ A simple Godot multiplayer setup. Change the IP address to your cloud hosting pu
 
 ## Tutorial to host the game online
 
-* Create an Amazon Web Services account, then sign in to the console. At the top right, set the region to where you want to create the server (ideally East United States or West Europe).
+* Create an Amazon Web Services account, then click **Sign in to console** then **Sign in using root user email**. Check **Root user**. A menu will ask you to secure your account check **Authenticator app**. At the top right, set the region to where you want to create the server (ideally East United States or West Europe).
 
 * Create an EC2 instance by clicking on **Launch instance**. Create a key pair, name it for example **mykey**, and save it in a folder that you call **security**. Beside the checkbox **Allow SSH traffic from**, set the option to **My IP**. Click **Launch instance**.
 
