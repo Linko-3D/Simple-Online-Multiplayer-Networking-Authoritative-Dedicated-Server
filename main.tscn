@@ -84,6 +84,7 @@ offset_bottom = 40.0
 [node name="HostButton" type="Button" parent="Debug" unique_id=800863061]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
 theme_override_constants/outline_size = 5
 text = "HOST GAME"
 
